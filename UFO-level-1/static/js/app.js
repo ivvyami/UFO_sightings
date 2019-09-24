@@ -35,31 +35,17 @@ button.on("click", function() {
     // select the table body, you'll be using this later
     var tbody = d3.select("tbody");
 
+    tbody.html("");
+
     filteredData.forEach(ufoSighting => {
         var row = tbody.append("tr");
         Object.entries(ufoSighting).forEach(([key, value]) => {
             var cell = row.append("td");
             cell.text(value);
         });
+
     });
-       
-    
-    // // loop through the filtered data and console.log all of it
-    // tableData.forEach(function(filteredData) {
-    //     console.log(filteredData);
 
-    //     //append one table row 'tr' for each ufo sighting
-    //     var row = tbody.append("tr");
-
-    //     // console log each ufo sighting value
-    //     Object.entries(filteredData).forEach(function([key,value]) {
-    //         console.log(key, value);
-    //         //use d3 to append 1 cell per ufo sighting value (datetime, city, state
-    //         // country, shape, comment)
-    //         var cell = row.append("td");
-    //         cell.text(value);
-    //     });
-
-    // });
+    d3.event.target.value = ""
 });
 
